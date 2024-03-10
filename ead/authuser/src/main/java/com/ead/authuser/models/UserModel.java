@@ -30,7 +30,7 @@ public class UserModel implements Serializable {
     @JsonIgnore
     private String password;
     @Column(nullable = false, length = 150)
-    private String fullname;
+    private String fullName;
     @Column(nullable = false)
     @Enumerated(EnumType.STRING)
     private UserStatus userStatus;
@@ -49,4 +49,15 @@ public class UserModel implements Serializable {
     @Column(nullable = false)
     @JsonFormat(shape = JsonFormat.Shape.STRING,pattern = "dd-MM-yyyy HH:mm:ss")
     private LocalDateTime lastUpdateDate;
+    @PrePersist
+    protected void onCreate() {
+        creationDate = LocalDateTime.now();
+        lastUpdateDate = LocalDateTime.now();
+    }
+
+    @PreUpdate
+    protected void onUpdate() {
+        lastUpdateDate = LocalDateTime.now();
+    }
+
 }
