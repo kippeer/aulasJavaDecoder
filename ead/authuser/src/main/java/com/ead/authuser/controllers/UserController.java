@@ -83,7 +83,7 @@ public class UserController {
             userModel.setPassword(userDto.getPassword());
             userModel.setLastUpdateDate(LocalDateTime.now(ZoneId.of("UTC")));
             userService.save(userModel);
-            return ResponseEntity.status(HttpStatus.OK).body("Passworl updated successfully");
+            return ResponseEntity.status(HttpStatus.OK).body("Password updated successfully");
         }
     }
     @PutMapping("/{userId}/image")
