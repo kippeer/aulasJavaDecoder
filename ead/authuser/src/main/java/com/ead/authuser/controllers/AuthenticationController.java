@@ -1,9 +1,9 @@
 package com.ead.authuser.controllers;
 
 import com.ead.authuser.dtos.UserDto;
+import com.ead.authuser.enums.UserStatus;
+import com.ead.authuser.enums.UserType;
 import com.ead.authuser.models.UserModel;
-import com.ead.authuser.models.enums.UserStatus;
-import com.ead.authuser.models.enums.UserType;
 import com.ead.authuser.services.UserService;
 import com.fasterxml.jackson.annotation.JsonView;
 import org.springframework.beans.BeanUtils;
@@ -26,7 +26,7 @@ public class AuthenticationController {
 
     @PostMapping("/signup")
     public ResponseEntity<Object> registerUser(@RequestBody @Validated(UserDto.UserView.RegistrationPost.class)
-                                               @JsonView(UserDto.UserView.RegistrationPost.class) UserDto userDto){
+                                                   @JsonView(UserDto.UserView.RegistrationPost.class) UserDto userDto){
         if(userService.existsByUsername(userDto.getUsername())){
             return ResponseEntity.status(HttpStatus.CONFLICT).body("Error: Username is Already Taken!");
         }
@@ -43,5 +43,3 @@ public class AuthenticationController {
         return  ResponseEntity.status(HttpStatus.CREATED).body(userModel);
     }
 }
-
-

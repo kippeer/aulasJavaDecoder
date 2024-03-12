@@ -1,10 +1,7 @@
 package com.ead.authuser.validation;
 
-import org.springframework.context.annotation.Configuration;
-
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
-
 
 public class UsernameConstraintImpl implements ConstraintValidator<UsernameConstraint, String> {
 
