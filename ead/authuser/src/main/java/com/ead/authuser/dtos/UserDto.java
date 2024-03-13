@@ -17,7 +17,7 @@ public class UserDto {
         public static interface RegistrationPost {}
         public static interface UserPut {}
         public static interface PasswordPut {}
-        public static interface ImagePut {}
+        interface ImagePut {}
     }
 
     @NotBlank(groups = UserView.RegistrationPost.class)
