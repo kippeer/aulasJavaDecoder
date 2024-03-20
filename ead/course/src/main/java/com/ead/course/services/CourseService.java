@@ -1,6 +1,7 @@
 package com.ead.course.services;
 
-import org.springframework.data.jpa.repository.JpaRepository;
+import com.ead.course.models.CourseModel;
 
 public interface CourseService {
+    void delete(CourseModel courseModel);
 }
