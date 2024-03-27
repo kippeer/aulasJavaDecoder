@@ -20,7 +20,7 @@ import java.util.UUID;
 @RestController
 @RequestMapping("/courses")
 @CrossOrigin(origins = "*", maxAge = 36000)
-public class CourseControllers {
+public class CourseController {
     @Autowired
     CourseService courseService;
 
