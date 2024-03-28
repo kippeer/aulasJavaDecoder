@@ -42,7 +42,7 @@ public class ModuleController {
     }
 
     @DeleteMapping("/courses/{courseId}/modules/{moduleId}")
-    public ResponseEntity<Object> deleteCourse(@PathVariable(value = "courseId") UUID courseId,
+    public ResponseEntity<Object> deleteModule(@PathVariable(value = "courseId") UUID courseId,
                                                @PathVariable(value = "moduleId") UUID moduleId) {
         Optional<ModuleModel> moduleModelOptional = moduleService.findModuleIntoCourese(courseId, moduleId);
         if (!moduleModelOptional.isPresent()) {
@@ -53,7 +53,7 @@ public class ModuleController {
     }
 
     @PutMapping("/courses/{courseId}/modules/{moduleId}")
-    public ResponseEntity<Object> updateCourse(@PathVariable(value = "courseId") UUID courseId,
+    public ResponseEntity<Object> updateModule(@PathVariable(value = "courseId") UUID courseId,
                                                @PathVariable(value = "moduleId") UUID moduleId,
                                                @RequestBody @Valid ModuleDto moduleDto) {
         Optional<ModuleModel> moduleModelOptional = moduleService.findModuleIntoCourese(courseId, moduleId);

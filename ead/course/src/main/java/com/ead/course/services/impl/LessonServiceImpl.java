@@ -6,6 +6,10 @@ import com.ead.course.services.LessonService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.Optional;
+import java.util.UUID;
+
 @Service
 public class LessonServiceImpl implements LessonService {
     @Autowired
@@ -15,5 +19,21 @@ public class LessonServiceImpl implements LessonService {
     @Override
     public LessonModel save(LessonModel lessonModel) {
         return lessonRepository.save(lessonModel);
+    }
+
+    @Override
+    public Optional<LessonModel> findLessonIntoModule(UUID lessonId, UUID moduleId) {
+        return lessonRepository.findLessonIntoModule(moduleId,lessonId);
+    }
+
+    @Override
+    public void delete(LessonModel lessonModel) {
+        lessonRepository.delete(lessonModel);
+
+    }
+
+    @Override
+    public List<LessonModel> findAllByModule(UUID moduleId) {
+        return lessonRepository.findAllLLessonsIntoModule(moduleId);
     }
 }
