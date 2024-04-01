@@ -39,7 +39,11 @@ public class SpecificationTemplate {
             Root<ModuleModel> module = root;
             Root<CourseModel> course = query.from(CourseModel.class);
             Expression<Collection<ModuleModel>> coursesModules = course.get("modules");
-            return cb.equal(course.get("courseId"), courseId),cb.isMember(module, coursesModules);
+            return cb.and(
+                    cb.equal(course.get("courseId"), courseId),
+                    cb.isMember(module, coursesModules)
+            );
         };
     }
+
 }
