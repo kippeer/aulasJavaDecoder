@@ -18,15 +18,18 @@ import java.util.UUID;
 
 @Service
 public class ModuleServiceImpl implements ModuleService {
+
     @Autowired
     ModuleRepository moduleRepository;
+
     @Autowired
     LessonRepository lessonRepository;
+
     @Transactional
     @Override
     public void delete(ModuleModel moduleModel) {
-        List<LessonModel>lessonModelList = lessonRepository.findAllLLessonsIntoModule(moduleModel.getModuleId());
-        if (!lessonModelList.isEmpty()) {
+        List<LessonModel> lessonModelList = lessonRepository.findAllLessonsIntoModule(moduleModel.getModuleId());
+        if (!lessonModelList.isEmpty()){
             lessonRepository.deleteAll(lessonModelList);
         }
         moduleRepository.delete(moduleModel);
@@ -38,8 +41,8 @@ public class ModuleServiceImpl implements ModuleService {
     }
 
     @Override
-    public Optional<ModuleModel> findModuleIntoCourese(UUID courseId, UUID moduleId) {
-        return moduleRepository.findModulesIntoCourse(courseId, moduleId);
+    public Optional<ModuleModel> findModuleIntoCourse(UUID courseId, UUID moduleId) {
+        return moduleRepository.findModuleIntoCourse(courseId, moduleId);
     }
 
     @Override

@@ -1,6 +1,5 @@
 package com.ead.course.repositories;
 
-import com.ead.course.models.CourseModel;
 import com.ead.course.models.ModuleModel;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
@@ -16,6 +15,6 @@ public interface ModuleRepository extends JpaRepository<ModuleModel, UUID>, JpaS
     @Query(value="select * from tb_modules where course_course_id = :courseId", nativeQuery = true)
     List<ModuleModel> findAllLModulesIntoCourse(@Param("courseId") UUID courseId);
 
-    @Query(value="select * from tb_modules where course_course_id = :courseId and module_id = :moduleId", nativeQuery = true)
-    Optional<ModuleModel> findModulesIntoCourse(@Param("courseId") UUID courseId, @Param("moduleId") UUID moduleId);
+    @Query(value = "select * from tb_modules where course_course_id = :courseId and module_id = :moduleId", nativeQuery = true)
+    Optional<ModuleModel> findModuleIntoCourse(@Param("courseId") UUID courseId, @Param("moduleId") UUID moduleId);
 }

@@ -11,11 +11,8 @@ import org.springframework.data.jpa.domain.Specification;
 
 import javax.persistence.criteria.Expression;
 import javax.persistence.criteria.Root;
-import java.math.BigInteger;
 import java.util.Collection;
 import java.util.UUID;
-
-import static antlr.build.ANTLR.root;
 
 public class SpecificationTemplate {
 
