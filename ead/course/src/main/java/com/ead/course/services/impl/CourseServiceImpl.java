@@ -21,6 +21,7 @@ import java.util.UUID;
 
 @Service
 public class CourseServiceImpl implements CourseService {
+
     @Autowired
     CourseRepository courseRepository;
 
@@ -34,9 +35,9 @@ public class CourseServiceImpl implements CourseService {
     @Override
     public void delete(CourseModel courseModel) {
         List<ModuleModel> moduleModelList = moduleRepository.findAllLModulesIntoCourse(courseModel.getCourseId());
-        if(!moduleModelList.isEmpty()){
-            for(ModuleModel module: moduleModelList){
-                List<LessonModel> lessonModelList = lessonRepository.findAllLLessonsIntoModule(module.getModuleId());
+        if (!moduleModelList.isEmpty()){
+            for(ModuleModel module : moduleModelList){
+                List<LessonModel> lessonModelList = lessonRepository.findAllLessonsIntoModule(module.getModuleId());
                 if (!lessonModelList.isEmpty()){
                     lessonRepository.deleteAll(lessonModelList);
                 }
@@ -47,12 +48,12 @@ public class CourseServiceImpl implements CourseService {
     }
 
     @Override
-    public CourseModel save (CourseModel courseModel) {
+    public CourseModel save(CourseModel courseModel) {
         return courseRepository.save(courseModel);
-
     }
+
     @Override
-    public Optional<CourseModel> findById(UUID courseId){
+    public Optional<CourseModel> findById(UUID courseId) {
         return courseRepository.findById(courseId);
     }
 
@@ -60,6 +61,4 @@ public class CourseServiceImpl implements CourseService {
     public Page<CourseModel> findAll(Specification<CourseModel> spec, Pageable pageable) {
         return courseRepository.findAll(spec, pageable);
     }
-
-
 }
