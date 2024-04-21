@@ -20,3 +20,4 @@ public class SpecificationTemplate {
     })
     public interface UserSpec extends Specification<UserModel> {}
 }
+//a
