@@ -52,4 +52,8 @@ public class CourseModel implements Serializable {
     @Fetch(FetchMode.SUBSELECT)
     private Set<ModuleModel> modules;
 
+    @JsonProperty
+    @OneToMany(mappedBy = "course",fetch = FetchType.LAZY)
+    private Set<CourseUserModel> coursesUsers;
+
 }
