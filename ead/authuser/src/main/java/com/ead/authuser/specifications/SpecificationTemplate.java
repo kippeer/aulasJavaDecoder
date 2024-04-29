@@ -20,7 +20,7 @@ public class SpecificationTemplate {
             @Spec(path = "email", spec = Like.class),
             @Spec(path = "username", spec = Like.class),
             @Spec(path = "cpf", spec = Like.class),
-            @Spec(path = "fullName", spec = LikeIgnoreCase.class)
+            @Spec(path = "fullName", spec = Like.class)
     })
     public interface UserSpec extends Specification<UserModel> {}
 
