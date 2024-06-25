@@ -20,15 +20,16 @@ public class SpecificationTemplate {
             @Spec(path = "email", spec = Like.class),
             @Spec(path = "username", spec = Like.class),
             @Spec(path = "cpf", spec = Like.class),
-            @Spec(path = "fullName", spec = Like.class)
+            @Spec(path = "fullName", spec = LikeIgnoreCase.class)
     })
     public interface UserSpec extends Specification<UserModel> {}
 
-    public static Specification<UserModel> userCourseId(final UUID courseId){
-        return(root,query,cb)->{
+    public static Specification<UserModel> userCourseId(final UUID courseId) {
+        return (root, query, cb) -> {
             query.distinct(true);
             Join<UserModel, UserCourseModel> userProd = root.join("usersCourses");
-            return cb.equal(userProd.get("courseId"),courseId);
+            return cb.equal(userProd.get("courseId"), courseId);
         };
     }
+
 }

@@ -22,8 +22,8 @@ public class ResponsePageDto<T> extends PageImpl<T> {
                            @JsonProperty("sort") JsonNode sort,
                            @JsonProperty("first") boolean first,
                            @JsonProperty("empty") boolean empty) {
+
         super(content, PageRequest.of(number, size), totalElements);
-        // Os parâmetros adicionais (last, totalPages, sort, first, empty) podem ser utilizados aqui se necessário.
     }
 
     public ResponsePageDto(List<T> content, Pageable pageable, long total) {

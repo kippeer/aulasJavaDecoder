@@ -8,6 +8,7 @@ import java.util.UUID;
 
 @Data
 public class CourseDto {
+
     private UUID courseId;
     private String name;
     private String description;
@@ -15,4 +16,5 @@ public class CourseDto {
     private CourseStatus courseStatus;
     private UUID userInstructor;
     private CourseLevel courseLevel;
+
 }

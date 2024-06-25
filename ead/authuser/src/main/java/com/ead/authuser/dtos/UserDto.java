@@ -14,17 +14,10 @@ import javax.validation.constraints.Size;
 public class UserDto {
 
     public interface UserView {
-        interface RegistrationPost {
-        }
-
-        interface UserPut {
-        }
-
-        interface PasswordPut {
-        }
-
-        interface ImagePut {
-        }
+        public static interface RegistrationPost {}
+        public static interface UserPut {}
+        public static interface PasswordPut {}
+        public static interface ImagePut {}
     }
 
     @NotBlank(groups = UserView.RegistrationPost.class)
